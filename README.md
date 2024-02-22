@@ -8,3 +8,4 @@ This repository contains my solutions to the PSUC lab experiments. Each director
 - [Lab 3 solutions](./lab%203/)
 - [Lab 4 solutions](./lab%204/)
 - [Lab 5 solutions](./lab%205/)
+- [Lab 6 solutions](./lab%206/)
