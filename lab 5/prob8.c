@@ -8,17 +8,26 @@ Cost price discount
 #include <stdio.h>
 
 int main() {
-    float costPrice, discountAmount;
+    float costPrice, discount = 0.0;
 
-    printf("Enter the cost price: Rs. ");
+    printf("Enter the cost price: ");
     scanf("%f", &costPrice);
 
-    if (costPrice >= 800) {
-        discountAmount = 0.25 * costPrice;
-    } else if (costPrice >= 500) {
-        discountAmount = 0.20 * costPrice;
-    } else {
-        discountAmount = 0;
+    switch ((int)costPrice) {
+        case 800 ... 999:
+            discount = 0.25;
+            break;
+        case 500 ... 799:
+            discount = 0.20;
+            break;
+        default:
+            discount = 0.0;
+            break;
     }
-    printf("Discount amount: Rs. %.2f\n", discountAmount);
+
+    float discountInR = costPrice * discount;
+
+    printf("Cost price: Rs. %.2f\n", costPrice);
+    printf("Discount rate: %.2f%%\n", discount * 100);
+    printf("Discount in rupees: Rs. %.2f\n", discountInR);
 }

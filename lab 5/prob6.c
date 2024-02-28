@@ -9,21 +9,30 @@ Calls charge per call (Rs.)
 #include <stdio.h>
 
 int main() {
-    int totalCalls;
-    float billAmount;
+    int calls;
+    float charge = 0.0;
 
-    printf("Enter the total number of calls: ");
-    scanf("%d", &totalCalls);
+    printf("Enter the number of calls: ");
+    scanf("%d", &calls);
 
-    if (totalCalls >= 1 && totalCalls <= 150) {
-        billAmount = totalCalls * 0;
-    } else if (totalCalls <= 250) {
-        billAmount = 150 * 0 + (totalCalls - 150) * 0.9;
-    } else if (totalCalls <= 400) {
-        billAmount = 150 * 0 + 100 * 0.9 + (totalCalls - 250) * 1.2;
-    } else {
-        billAmount = 150 * 0 + 100 * 0.9 + 150 * 1.2 + (totalCalls - 400) * 1.5;
+    switch (calls) {
+        case 1 ... 150:
+            charge = 0.0;
+            break;
+        case 151 ... 250:
+            charge = 0.9;
+            break;
+        case 251 ... 400:
+            charge = 1.2;
+            break;
+        default:
+            charge = 1.5;
+            break;
     }
 
-    printf("Telephone bill amount: Rs. %.2f\n", billAmount);
+    float totalAmount = calls * charge;
+
+    printf("Number of calls: %d\n", calls);
+    printf("Charge per call (Rs.): %.2f\n", charge);
+    printf("Total amount: Rs. %.2f\n", totalAmount);
 }

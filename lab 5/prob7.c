@@ -11,20 +11,29 @@ Next, 201-400 up to 2.5
 
 int main() {
     int units;
-    float billAmount;
+    float charge = 0.0;
 
     printf("Enter the number of units: ");
     scanf("%d", &units);
 
-    if (units >= 1 && units <= 100) {
-        billAmount = units * 0;
-    } else if (units <= 200) {
-        billAmount = 100 * 0 + (units - 100) * 1.5;
-    } else if (units <= 400) {
-        billAmount = 100 * 0 + 100 * 1.5 + (units - 200) * 2.5;
-    } else {
-        billAmount = 100 * 0 + 100 * 1.5 + 200 * 2.5 + (units - 400) * 3.5;
+    switch(units / 100) {
+        case 0:
+            charge = 0.0;
+            break;
+        case 1:
+            charge = 1.5;
+            break;
+        case 2:
+            charge = 2.5;
+            break;
+        default:
+            charge = 3.5;
+            break;
     }
 
-    printf("Electricity bill amount: Rs. %.2f\n", billAmount);
+    float totalAmount = units * charge;
+
+    printf("Number of units: %d\n", units);
+    printf("Charge per unit (Rs.): %.2f\n", charge);
+    printf("Total amount: Rs. %.2f\n", totalAmount);
 }
