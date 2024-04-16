@@ -1,19 +1,31 @@
 // program to find the largest and smallest element in an array.
 
-#include <stdio.h>
+#include <stdio.h> 
 
 int main() {
-    int arr[] = {5, 8, 3, 2, 9, 1, 10};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    int min = arr[0], max = arr[0];
-    
-    for(int i = 1; i < size; i++) {
-        if(arr[i] < min)
-            min = arr[i];
-        if(arr[i] > max)
-            max = arr[i];
+    int size;
+
+    printf("Enter size of array: ");
+    scanf("%d", &size);
+
+    int arr[size], largest, smallest;
+
+    printf("Enter elements of array: ");
+    for(int i=0; i<size; i++) {
+        scanf("%d", &arr[i]);
     }
-    
-    printf("The smallest element in the array is: %d\n", min);
-    printf("The largest element in the array is: %d\n", max);
+
+    smallest = arr[0], largest = arr[0];
+
+    for(int i=0; i<size; i++) {
+        if(arr[i] < smallest) {
+            smallest = arr[i];
+        } 
+        if(arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+
+    printf("Smallest element: %d \n", smallest);
+    printf("Largest element: %d \n", largest);
 }
