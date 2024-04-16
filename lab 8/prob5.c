@@ -1,34 +1,27 @@
-// program to reverse an array with an auxiliary array
+// Write a program to reverse an array with an auxiliary array
 
 #include <stdio.h>
 
-void reverseArray(int arr[], int size) {
-    int aux[size]; 
-    
-    for (int i = 0; i < size; i++) {
-        aux[i] = arr[size - 1 - i];
-    }
-    
-    for (int i = 0; i < size; i++) {
-        arr[i] = aux[i];
-    }
-}
-
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int size;
     
-    printf("Original array: ");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
+    printf("Enter size of an array: ");
+    scanf("%d", &size);
+    
+    int arr1[size];
+    
+    printf("Enter elements of array: ");
+    for(int i=0; i<size; i++) {
+        scanf("%d", &arr1[i]);
     }
-    printf("\n");
     
-    reverseArray(arr, size);
-    
-    printf("Reversed array: ");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
+    int arr2[size];
+    for(int i=0; i<size; i++) {
+        arr2[i] = arr1[size-i-1];
     }
-    printf("\n");
+    
+    printf("reversed array: ");
+    for(int i=0; i<size; i++) {
+        printf("%d ", arr2[i]);
+    }
 }
