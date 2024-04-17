@@ -1,29 +1,27 @@
-// program to take an array of 10 elements. Split it into the middle and store theelements in two different arrays
+// program to take an array of 10 elements. Split it into the middle and store the elements in two different arrays. 
 
 #include <stdio.h>
 
 int main() {
-    int originalArray[10];
-    int leftArray[5];
-    int rightArray[5];
-
-    printf("Enter 10 elements of the array:\n");
-    for (int i = 0; i < 10; i++) {
-        scanf("%d", &originalArray[i]);
+    int arr[10];
+    
+    printf("Enter 10 elements: ");
+    for(int i=0; i<10; i++) {
+        scanf("%d", &arr[i]);
     }
-
-    for (int i = 0; i < 5; i++) {
-        leftArray[i] = originalArray[i];
-        rightArray[i] = originalArray[i + 5];
+    
+    int subArr1[5], subArr2[5];
+    
+    printf("Sub Array 1 : ");
+    for(int i=0; i<5; i++) {
+        subArr1[i] = arr[i];
+        printf("%d ", subArr1[i]);
     }
-
-    printf("\nLeft array:\n");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", leftArray[i]);
-    }
-
-    printf("\nRight array:\n");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", rightArray[i]);
+    printf("\n");
+    
+    printf("Sub Array 2: ");
+    for(int i=5; i<10; i++) {
+        subArr2[i] = arr[i];
+        printf("%d ", subArr2[i]);
     }
 }
